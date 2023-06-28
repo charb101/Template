@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  {% include 'layouts/partials/head.njk' %}
+  <body>
+    {% include 'layouts/partials/header.njk' %}
+
+    <main{% if templateClass %} class="{{ templateClass }}"{% endif %}>
+      {{ content | safe }}
+    </main>
+
+    {% include 'layouts/partials/footer.njk' %}
+
+    <!-- Current page: {{ page.url | url }} -->
+
+    <script src="{% if yetty.environment === 'production' %}{{ '/assets/scripts/bundle.min.js' | url }}{% else %}{{ '/assets/scripts/index.js' | url }}{% endif %}"></script>
+    {% if page.url === '/posts/mermaid_test/' %}
+      <script src="{{ '/assets/scripts/mermaid.min.js' | url }}"></script>
+      <script>
+        mermaid.initialize({startOnLoad: true});
+      </script>
+    {% endif %}
+  </body>
+</html>
