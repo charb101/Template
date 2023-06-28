@@ -6,7 +6,7 @@
 # CloudCannon configuration specific to those collections.
 collections_config:
   pages:
-    output: true
+    output: false
     filter: strict
     parse_branch_index: true
     path: content
